@@ -49,7 +49,7 @@
     self.originalURL = URL;
     
     NSString *string = [NSString stringWithContentsOfURL:URL encoding:NSUTF8StringEncoding error:error];
-    return [self initWithContent:string baseURL:URL];
+    return [self initWithContent:string baseURL:[URL URLByDeletingLastPathComponent]];
 }
 
 - (void)parseMasterPlaylist {
