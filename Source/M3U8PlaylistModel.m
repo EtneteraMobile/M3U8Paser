@@ -42,7 +42,7 @@
     
     self.originalURL = URL;
     
-    return [self initWithString:str baseURL:URL.realBaseURL error:error];
+    return [self initWithString:str baseURL:[URL URLByDeletingLastPathComponent] error:error];
 }
 
 - (id)initWithString:(NSString *)string baseURL:(NSURL *)baseURL error:(NSError **)error {
