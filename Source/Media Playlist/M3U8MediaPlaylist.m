@@ -69,7 +69,8 @@
     self.segmentList = [[M3U8SegmentInfoList alloc] init];
     
     NSRange segmentRange = [self.originalText rangeOfString:M3U8_EXTINF];
-    NSString *remainingSegments = self.originalText;
+    NSString *remainingSegments = [self.originalText substringFromIndex:segmentRange.location];
+    segmentRange = [remainingSegments rangeOfString:M3U8_EXTINF];
     
     while (NSNotFound != segmentRange.location) {
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
